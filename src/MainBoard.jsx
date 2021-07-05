@@ -13,6 +13,7 @@ class MainBoard extends React.Component {
                 <div class="column-container">
                     <Column columnName="To Do">
                         <Card taskDescription="Merge Practice"></Card>
+                        <Card taskDescription="More Merge Practice"></Card>
                     </Column>
                         <Column columnName="In Progress">
                     </Column>
