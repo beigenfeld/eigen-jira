@@ -9,17 +9,22 @@ class MainBoard extends React.Component {
 
     render() {
         return (
+            
             <div className="App">
                 <div class="column-container">
                     <Column columnName="To Do">
-                        <Card taskDescription="Merge Practice"></Card>
-                        <Card taskDescription="More Merge Practice"></Card>
+                        <Card taskDescription="Create Add Card button"></Card>
+                        <Card taskDescription="Add Card button opens form to enter task description"></Card>
+                        <Card taskDescription="Add Card form has Create button that adds card to 'To Do' column"></Card>
                     </Column>
-                        <Column columnName="In Progress">
+
+                    <Column columnName="In Progress">
                     </Column>
+
                     <Column columnName="Done">
                         <Card taskDescription = "Make prop so cards can have unique messages"/>
                         <Card taskDescription="Add Headers to the columns "/>
+                        <Card taskDescription="Merge Practice"></Card>
                     </Column>
                 </div>
             </div>
@@ -28,6 +33,7 @@ class MainBoard extends React.Component {
 }
 
 // TODO:
+// - Create "Add Card" button
 // - Make Card drag-n-droppable
 // - Learn how to make React Tables, refactor columns
 // - Add columns dynamically with user-input names
