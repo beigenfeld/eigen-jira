@@ -15,6 +15,15 @@ const Card = (props) => {
     }
   }
 
+  function previousStatus (_status, _setState) {
+    if (_status === "Done") {
+      _setState("In Progress")
+    }
+    if (_status === "In Progress") {
+      _setState("ToDo")
+    }
+  }
+
   return (
     
     <div className="card">
@@ -28,6 +37,7 @@ const Card = (props) => {
         <p>Task = {props.taskDescription}</p>
       </div>
       <div>
+        <button onClick={() => previousStatus(status, setStatus)}>Back</button>
         <button onClick={() => nextStatus(status, setStatus) }>Next</button>
         <div>Status: { status }</div>
       </div>

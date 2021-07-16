@@ -18,13 +18,14 @@ class MainBoard extends React.Component {
                     </Column>
 
                     <Column columnName="In Progress">
-                    <Card taskDescription="Add 'Next' button to Card to change status"></Card>
                     </Column>
 
                     <Column columnName="Done">
                         <Card taskDescription = "Make prop so cards can have unique messages"/>
                         <Card taskDescription="Add Headers to the columns "/>
                         <Card taskDescription="Merge Practice"></Card>
+                        <Card taskDescription="Add 'Next' button to Card to change status"></Card>
+                        <Card taskDescription="Add a 'Back' button to reverse the status"></Card>
                     </Column>
                 </div>
             </div>
