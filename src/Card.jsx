@@ -1,10 +1,22 @@
 import React from "react";
 import logo from './logo.svg';
+import { useState } from "react";
 
 
 const Card = (props) => {
-  return (
+  const [status, setStatus] = useState("ToDo")
 
+  function nextStatus (_status, _setStatus) {
+    if ( _status  === "ToDo") {
+      _setStatus("In Progress")
+    }
+    if ( _status  === "In Progress") {
+      _setStatus("Done")
+    }
+  }
+
+  return (
+    
     <div className="card">
       <div className="card-top">
         <h1 class="card-header">Card</h1>
@@ -14,6 +26,10 @@ const Card = (props) => {
       </div>
       <div>
         <p>Task = {props.taskDescription}</p>
+      </div>
+      <div>
+        <button onClick={() => nextStatus(status, setStatus) }>Next</button>
+        <div>Status: { status }</div>
       </div>
     </div>
   );

@@ -9,7 +9,6 @@ class MainBoard extends React.Component {
 
     render() {
         return (
-            
             <div className="App">
                 <div class="column-container">
                     <Column columnName="To Do">
@@ -19,6 +18,7 @@ class MainBoard extends React.Component {
                     </Column>
 
                     <Column columnName="In Progress">
+                    <Card taskDescription="Add 'Next' button to Card to change status"></Card>
                     </Column>
 
                     <Column columnName="Done">
@@ -34,6 +34,7 @@ class MainBoard extends React.Component {
 
 // TODO:
 // - Create "Add Card" button
+// - Create a 'Delete Card' button with warning popup
 // - Make Card drag-n-droppable
 // - Learn how to make React Tables, refactor columns
 // - Add columns dynamically with user-input names
