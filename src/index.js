@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import MainBoard from './MainBoard';
+import {Items} from './Items'
 
 
 
 ReactDOM.render(
+ //  <Items/>,
   <MainBoard/>,
   document.querySelector('#root')
 )

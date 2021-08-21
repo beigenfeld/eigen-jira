@@ -1,27 +1,32 @@
 import React from "react";
 import logo from './logo.svg';
 import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 
-const Card = (props) => {
-  const [status, setStatus] = useState("ToDo")
+const Card = ({key, status, taskDescription, updateStatus}) => {
+  const id = uuidv4()
 
-  function nextStatus (_status, _setStatus) {
+  function nextStatus (_key, _status, _updateStatus) {
+    console.log("props: ", "key: ", _key, _status, _updateStatus)
     if ( _status  === "ToDo") {
-      _setStatus("In Progress")
+      _updateStatus({key:_key, status:"In Progress"})
     }
     if ( _status  === "In Progress") {
-      _setStatus("Done")
+      _updateStatus({key:_key, status:"Done"})
     }
+    console.log ("nextStatus: ",_status,_key, status )
   }
 
-  function previousStatus (_status, _setState) {
+  function previousStatus (_key, _status, _updateStatus) {
+    console.log("props: ", _key, _status, _updateStatus)
     if (_status === "Done") {
-      _setState("In Progress")
+      _updateStatus({key:_key, status:"In Progress"})
     }
     if (_status === "In Progress") {
-      _setState("ToDo")
+      _updateStatus({key:_key, status:"ToDo"})
     }
+    console.log ("nextStatus: ",_status,_key, status )
   }
 
   return (
@@ -32,13 +37,14 @@ const Card = (props) => {
       </div>
       <div className="card-body">
         <img src={logo} alt-text="logo"></img>
+        <div>{key}</div>
       </div>
       <div>
-        <p>Task = {props.taskDescription}</p>
+        <p>Task = {taskDescription}</p>
       </div>
       <div>
-        <button onClick={() => previousStatus(status, setStatus)}>Back</button>
-        <button onClick={() => nextStatus(status, setStatus) }>Next</button>
+        <button onClick={() => previousStatus(key, status, updateStatus)}>Back</button>
+        <button onClick={() => nextStatus(key, status, updateStatus) }>Next</button>
         <div>Status: { status }</div>
       </div>
     </div>
