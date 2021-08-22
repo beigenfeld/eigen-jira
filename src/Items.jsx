@@ -49,7 +49,6 @@ export const Items = () => {
     ])
 
     const updateStatus = (id,newStatus) => {
-        console.log('1', items)
         const allItems = items.map(item => {
             if (item.id === id) {
                 console.log('in here')
