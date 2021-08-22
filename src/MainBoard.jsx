@@ -25,10 +25,10 @@ const initialCardState = {
 
 function MainBoard () {
     const [allCards, setAllCards] = useState(initialCardState)
-    function updateCardById ({id, status}) {
-        console.log("updateCardById: ", id, status)
-        const updatedCard = {...allCards[id], status}
-        const updatedCards = {...allCards, [id]: updatedCard}
+    function updateCardById ({key, status}) {
+        console.log("updateCardByKey: ", key, status)
+        const updatedCard = {...allCards[key], status}
+        const updatedCards = {...allCards, [key]: updatedCard}
         setAllCards (updatedCards)
         console.log("updatedCards: ", updatedCard)
     }
@@ -41,23 +41,50 @@ function MainBoard () {
                     {Object.keys(allCards)
                         .map (key => ({key, ...allCards[key]}))
                         .filter ((card) => card.status === "ToDo"  )
-                        .map ( (card) => <Card key={card.key} updateStatus={updateCardById} status={card.status} taskDescription={card.taskDescription}/> )
+                        .map ((card) => {
+                            const cardId = card.key
+                            return <Card 
+                                key={cardId}
+                                cardId={cardId}
+                                updateStatus={updateCardById}
+                                status={card.status}
+                                taskDescription={card.taskDescription}/>
+                            }
+                        )
                     }
                 </Column>
 
                 <Column id="In Progress" columnName="In Progress">
-                {Object.keys(allCards)
+                    {Object.keys(allCards)
                         .map (key => ({key, ...allCards[key]}))
                         .filter( (card) => card.status === "In Progress"  )
-                        .map ( (card) => <Card key={card.key} updateStatus={updateCardById} status={card.status} taskDescription={card.taskDescription}/> )
+                        .map ((card) => {
+                            const cardId = card.key
+                            return <Card 
+                                key={cardId}
+                                cardId={cardId}
+                                updateStatus={updateCardById}
+                                status={card.status}
+                                taskDescription={card.taskDescription}/>
+                            }
+                        )
                     }
                 </Column>
 
                 <Column id="Done" columnName="Done">
-                {Object.keys(allCards)
+                    {Object.keys(allCards)
                         .map (key => ({key, ...allCards[key]}))
                         .filter( (card) => card.status === "Done"  )
-                        .map ( (card) => <Card key={card.key} updateStatus={updateCardById} status={card.status} taskDescription={card.taskDescription}/> )
+                        .map ((card) => {
+                            const cardId = card.key
+                            return <Card 
+                                key={cardId}
+                                cardId={cardId}
+                                updateStatus={updateCardById}
+                                status={card.status}
+                                taskDescription={card.taskDescription}/>
+                            }
+                        )
                     }
                 </Column>
             </div>

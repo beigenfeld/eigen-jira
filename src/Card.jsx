@@ -4,7 +4,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
 
-const Card = ({key, status, taskDescription, updateStatus}) => {
+const Card = ({cardId, status, taskDescription, updateStatus}) => {
   const id = uuidv4()
 
   function nextStatus (_key, _status, _updateStatus) {
@@ -19,7 +19,7 @@ const Card = ({key, status, taskDescription, updateStatus}) => {
   }
 
   function previousStatus (_key, _status, _updateStatus) {
-    console.log("props: ", _key, _status, _updateStatus)
+    console.log("props: ", "key: ", _key, _status, _updateStatus)
     if (_status === "Done") {
       _updateStatus({key:_key, status:"In Progress"})
     }
@@ -30,21 +30,20 @@ const Card = ({key, status, taskDescription, updateStatus}) => {
   }
 
   return (
-    
     <div className="card">
       <div className="card-top">
         <h1 class="card-header">Card</h1>
       </div>
       <div className="card-body">
         <img src={logo} alt-text="logo"></img>
-        <div>{key}</div>
+        <div>{cardId}</div>
       </div>
       <div>
         <p>Task = {taskDescription}</p>
       </div>
       <div>
-        <button onClick={() => previousStatus(key, status, updateStatus)}>Back</button>
-        <button onClick={() => nextStatus(key, status, updateStatus) }>Next</button>
+        <button onClick={() => previousStatus(cardId, status, updateStatus)}>Back</button>
+        <button onClick={() => nextStatus(cardId, status, updateStatus) }>Next</button>
         <div>Status: { status }</div>
       </div>
     </div>
